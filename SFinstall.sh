@@ -92,7 +92,7 @@ cd
 
 # Настройка
 echo 'numlockx on' >> ~/.xinitrc
-echo 'sudo pacman -Syu; >> ~/.xinit.rc
+echo 'sudo pacman -Syu' >> ~/.xinit.rc
 echo 'startx' >> ~/.xinit.rc
 
 # Конфиг kitty
@@ -147,6 +147,12 @@ mkdir -p ~/Documents
 mkdir -p ~/Downloads
 mkdir -p ~/Music
 mkdir -p ~/Videos
+
+
+
+# Установка OpenRC
+
+
 
 # Удаление 
 sudo pacman -Rns vim --noconfirm
