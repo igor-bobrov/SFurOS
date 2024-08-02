@@ -91,39 +91,15 @@ echo 'numlockx on' >> ~/.xinitrc
 echo 'sudo pacman -Syu' >> ~/.xinit.rc
 echo 'startx' >> ~/.xinit.rc
 
-# Конфиг kitty
-mkdir -p ~/.config/kitty
-cat <<EOL > ~/.config/kitty/kitty.conf
-# Выбор темы и цвета
-background #1d1f21
-foreground #c5c8c6
-cursor_color #4B0082
-selection_background #4B0082
-selection_foreground #FFF0F5
-background_opacity 0.98
+# kitty
+git clone https://github.com/igor-bobrov/kitty-term.git
 
-# Настройка сочетаний клавиш
-copy_to_clipboard true
-map ctrl + c copy
-map ctrl + v paste
-map ctrl + z undo
+chmod +x ~/kitty-term/init.sh
+~/kitty-term/init.sh
 
-# Настройки шрифта
-font_family       Fira Code
-font_size         12.0
-bold_font         Fira Code Bold
+# dwm
 
-# Проведение разделителей
-padding_left      10
-padding_right     10
-padding_top       10
-padding_bottom    10
-
-EOL
-
-# Копирование конфигов dwm
-
-# Конфиги на Neovim
+# Neovim
 git clone https://github.com/igor-bobrov/sakari-nvim.git
 
 chmod +x ~/sakari-nvim/init-nvim.sh
