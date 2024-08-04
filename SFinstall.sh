@@ -23,15 +23,9 @@ sudo pacman -Syu —-noconfirm
 #______________________Работающая_Часть__________________________
 
 
-chmod +x ~/SfyrOS/SH/optionally-apps.sh
-~/SfyrOS/SH/optionally-apps.sh
-
-chmod +x ~/SH/SfurOS/standart-apps.sh
-~/SfurOS/SH/standart-apps.sh
-
+cd ~/
 # dwm
 git clone https://github.com/igor-bobrov/sakari-dwm.git
-
 chmod +x ~/sakari-dwm/init-dwm.sh
 ~/sakari-dwm/init-dwm.sh
 

@@ -28,12 +28,6 @@ git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si --noconfirm
 cd
-# paru
-git clone https://aur.archlinux.org/paru.git
-cd paru
-makepkg -si --noconfirm
-cd
 
 # aur Приложения
 yay -S librewolf-bin --noconfirm
-yay -S amberol --noconfirm
