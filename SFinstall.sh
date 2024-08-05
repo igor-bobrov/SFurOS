@@ -1,5 +1,4 @@
 #!/bin/bash
-
 if [[ $EUID -eq 0 ]]; then
 	echo "no root..."
 	exit 1
@@ -20,6 +19,9 @@ RESET=$(tput sgr0)
 clear
 
 cat << "EOF"
+made by sakari
+
+
       ::::::::       ::::::::::      :::    :::       :::::::::       ::::::::       ::::::::
     :+:    :+:      :+:             :+:    :+:       :+:    :+:     :+:    :+:     :+:    :+:
    +:+             +:+             +:+    +:+       +:+    +:+     +:+    +:+     +:+
@@ -32,55 +34,38 @@ cat << "EOF"
 
 EOF
 
-read -p " ${NOTE} Do you want install optionally apps? (y:n)     " initial_choice 
-
-if [[ $initial_choice == "y" || $initial_choice == "Y" ]]; then
-    clear
-
-    chmod +x ~/SFurOS/SH/Optionally-apps.sh
-    ~/SFurOS/SH/Optionally-apps.sh
-elif [[ $initial_choice == "n" || $initial_choice == "N" ]]; then
-    echo "Skip..."
-else
-    echo "Invalid choice. Please enter 'y' or 'n'."
-fi
+echo "${NOTE} Install aur. Please wait..."
+sleep 2
+chmod +x ~/SFurOS/SH/aur.sh
+~/SFurOS/SH/aur.sh
 
 clear
-
-read -p " ${NOTE} Do you want install dwm(dont work now), hyprland or budgue? (d:w:b)    " dhb
+read -p " ${NOTE} Do you want install dwm(dont work now) or budgue(only systemD) or all(dont work)? (d:b:a)    " dhb
+clear
 
 clear
+chmod +x ~/SFurOS/SH/Optionally-apps.sh
+~/SFurOS/SH/Optionally-apps.sh
+sleep 2
 
 echo "${NOTE} Done"
 echo "${NOTE} Download standart apps..."
-
 sleep 2
-
 chmod +x ~/SFurOS/SH/Standart-apps.sh
 ~/SFurOS/SH/Standart-apps.sh
 
-if [[ $dhb == "b" ]]; then
-        yay -S amberol --noconfirm
-fi
-
 clear
-
 echo "${NOTE} Done"
 echo "${NOTE} Download standart apps more..."
-
 sleep 2
 
-cd ~/
-# kitty
+cd 
 git clone https://github.com/igor-bobrov/kitty-term.git
-
 chmod +x ~/kitty-term/init.sh
 ~/kitty-term/init.sh
 
 cd
-# Neovim
 git clone https://github.com/igor-bobrov/sakari-nvim.git
-
 chmod +x ~/sakari-nvim/init-nvim.sh
 ~/sakari-nvim/init-nvim.sh
 
@@ -93,25 +78,15 @@ mkdir -p ~/Music
 mkdir -p ~/Videos
 
 # ENV
-if [[ $initial_choice == "h" || $initial_choice == "H" ]]; then
+if [[ $initial_choice == "d" || $initial_choice == "D" ]]; then
     clear
-    cd
-
-    git clone https://github.com/igor-bobrov/sakari-hypr.git
-    chmod +x ~/sakari-hypr/init.sh
-    ~/sakari-hypr/init.sh
-elif [[ $initial_choice == "d" || $initial_choice == "D" ]]; then
-    clear
-    cd
-
-    chmod +x ~/SFurOS/SH/xinit.sh
-    ~/SFurOS/SH/xinit.sh
-
     git clone https://github.com/igor-bobrov/sakari-dwm.git
     chmod +x ~/sakari-dwm/init-dwm.sh
     ~/sakari-dwm/init-dwm.sh    
 else
-    echo "..."
+    cd
+    chmod +x ~/SFurOS/SH/budgie.sh
+    ~/SFurOS/SH/budgie.sh
 fi
 
 sudo reboot
