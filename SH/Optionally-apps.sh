@@ -7,8 +7,8 @@ read -p " ${NOTE} Do you want install game-setup? (y:n)    " game-setup
 read -p " ${NOTE} Do you want install drivers (n)vidia, (a)md(dont work), (i)ntel or (o)pen-source-intel-nvidia? (n:a:i:o)    " drivers
 read -p " ${NOTE} Do you want install (q)ume or (v)irtual-box or both? (q:v:b)    " vm
 read -p " ${NOTE} Do you want install vs-code? (y:n)    " vs
-echo " ${WARN} web-browsers"
-read -p " ${NOTE} Do you want install librewolf? (y:n)    " lw
+echo " ${WARN} web-browsers(standart: librewolf)"
+read -p " ${NOTE} Do you want install google? (y:n)    " gb
 
 if [[ $gh == "y"]]; then
     # опенсурс github-cli
@@ -41,7 +41,4 @@ if [[ $vm == "v" || $vm == "b"]]; then
 fi
 if [[ $vs == "y"]]; then
     sudo pacman -Sy vscode --noconfirm
-fi
-if [[ $lw == "y"]]; then
-    yay -S librewolf-bin --noconfirm
 fi

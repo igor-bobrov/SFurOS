@@ -16,23 +16,19 @@ ORANGE=$(tput setaf 166)
 YELLOW=$(tput setaf 3)
 RESET=$(tput sgr0)
 
+# Base folders
+cp -r ~/SFurOS/Images ~/Images
+cp -r ~/SFurOS/Books ~/Books
+mkdir -p ~/Documents
+mkdir -p ~/Downloads
+mkdir -p ~/Music
+mkdir -p ~/Videos
+
 clear
 
-cat << "EOF"
-made by sakari
-
-
-      ::::::::       ::::::::::      :::    :::       :::::::::       ::::::::       ::::::::
-    :+:    :+:      :+:             :+:    :+:       :+:    :+:     :+:    :+:     :+:    :+:
-   +:+             +:+             +:+    +:+       +:+    +:+     +:+    +:+     +:+
-  +#++:++#++      :#::+::#        +#+    +:+       +#++:++#:      +#+    +:+     +#++:++#++
-        +#+      +#+             +#+    +#+       +#+    +#+     +#+    +#+            +#+
-#+#    #+#      #+#             #+#    #+#       #+#    #+#     #+#    #+#     #+#    #+#
-########       ###              ########        ###    ###      ########       ########
-
-
-
-EOF
+echo "made by sakari"
+chmod +x ~/SFurOS/nameOS.sh
+~/SFurOS/nameOS.sh
 
 echo "${NOTE} Install aur. Please wait..."
 sleep 2
@@ -69,16 +65,8 @@ git clone https://github.com/igor-bobrov/sakari-nvim.git
 chmod +x ~/sakari-nvim/init-nvim.sh
 ~/sakari-nvim/init-nvim.sh
 
-# Base folder
-cp -r ~/SFurOS/Images ~/Images
-cp -r ~/SFurOS/Books ~/Books
-mkdir -p ~/Documents
-mkdir -p ~/Downloads
-mkdir -p ~/Music
-mkdir -p ~/Videos
-
 # ENV
-if [[ $initial_choice == "d" || $initial_choice == "D" ]]; then
+if [[ $initial_choice == "d" || $initial_choice == "a"]]; then
     clear
     git clone https://github.com/igor-bobrov/sakari-dwm.git
     chmod +x ~/sakari-dwm/init-dwm.sh
