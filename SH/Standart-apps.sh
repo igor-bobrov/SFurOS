@@ -4,7 +4,8 @@ sudo pacman -Sy arch-install-scripts libx11 libxinerama libxft webkit2gtk --noco
 sudo pacman -Sy viewnior vlc libreoffice-still p7zip --noconfirm
 
 # sound and more
-sudo pacman -Sy xclip htop neofetch alsa-utils pulseaudio pulseaudio-alsa numlockx --noconfirm
+sudo pacman -Sy xclip htop neofetch numlockx --noconfirm
+# sudo pacman -Sy alsa-utils pulseaudio pulseaudio-alsa --noconfirm
 
 sudo pacman -Sy nmap --noconfirm
 sudo pacman -Sy veracrypt keepassxc --noconfirm
